@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanghvi SteelFab</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .slide {
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 2s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            background-color: transparent;
+            padding: 0 5%;
+            height: 100px;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+
+        .left {
+            font-size: 30px;
+            color: whitesmoke;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-navbar {
+            height: 80px;
+            width: 80px;
+            
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: whitesmoke;
+            margin-left: 10px;
+        }
+
+        .logo-square {
+            height: 100px;
+            width: 100px;
+            margin-right: 5px;
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: whitesmoke;
+            cursor: pointer;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.85);
+                width: 100%;
+                padding: 20px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
+        /* Responsive Navbar 
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+            }
+
+            .navbar-brand {
+                margin-bottom: 10px;
+            }
+
+            .right ul {
+                flex-direction: column;
+                width: 100%;
+                padding-left: 0;
+            }
+
+            .right ul li {
+                margin: 10px 0;
+            }
+        }*/
+
+        /* Values */
+        .values-section {
+            padding: 40px 20px;
+            text-align: center;
+            background: #fff;
+            opacity: 0.9;
+            margin-top: 100px;
+            ;
+        }
+
+        .values-section h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .values-section .intro {
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .values-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            color: #fff;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .card.red {
+            background-color: #e60000;
+        }
+
+        .card.black {
+            background-color: #222;
+        }
+
+        /* CEO Section */
+        .CEO-information-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+           
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .CEO-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            width: auto;
+        }
+
+        .CEO-image img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            opacity: 0.9;
+            object-fit: cover;
+        }
+
+        .CEO-information {
+            font-size: 1.5rem;
+            color: white;
+            
+            border-radius: 10px;
+            flex: 1;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Responsive CEO Section */
+        @media (max-width: 768px) {
+            .CEO-information-container {
+                flex-direction: column;
+                margin-top: 60px;
+            }
+
+            .CEO-image img {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto 20px;
+            }
+
+            .CEO-information {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+
+        /* Quote Section */
+        .quote-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 10%;
+            background-color: #fff;
+            gap: 50px;
+            opacity: 0.9;
+            margin-bottom: 500px;
+            margin-bottom: 0;
+        }
+
+        .quote-text {
+            flex: 1;
+            position: relative;
+        }
+
+        .quote-text .quote-mark {
+            font-size: 50px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .quote-text h2 {
+            font-size: 28px;
+            font-weight: normal;
+            line-height: 1.4;
+            margin: 20px 0;
+        }
+
+        .author {
+            font-size: 14px;
+            color: gray;
+            margin-top: 10px;
+        }
+
+        .quote-mark.bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Quote Image */
+        .quote-image {
+            flex: 1;
+        }
+
+        .quote-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .quote-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .quote-mark.bottom {
+                position: static;
+                margin-top: 10px;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 16px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg" style="width:100%">
+        </div>
+        <div class="slide fade">
+            <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg" style="width:100%">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-brand">
+            <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar" />
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="LandingPage.html"><b>Home</b></a></li>
+                <li><a href="Product.html"><b>Our Products</b></a></li>
+                <li><a href="AboutUs.html"><b>About Us</b></a></li>
+                <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Slideshow Script -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+    </script>
+
+    <!-- Values -->
+    <section class="values-section">
+        <h2>Values</h2>
+        <p class="intro">
+            We always uphold excellence across products through quality and innovation.
+            We are also committed towards safety and sustainability with a long-term focus.
+        </p>
+
+        <div class="values-cards">
+            <div class="card red">
+                <img src="https://i.pinimg.com/736x/ef/56/a5/ef56a59f629bd403ab6d3612d9a50ef4.jpg" alt="Safety">
+                <div class="card-content">
+                    <h3>Safety</h3>
+                    <p>Safety is a prime concern for us, be it employees, equipment, or environment.</p>
+                </div>
+            </div>
+
+            <div class="card black">
+                <img src="https://i.pinimg.com/736x/95/4b/76/954b766aca1e50593fa880bbf8e23e6b.jpg" alt="Sustainability">
+                <div class="card-content">
+                    <h3>Sustainability</h3>
+                    <p>Sustainability is an integral part of Sanghvi SteelFab's strategy & is present in all aspects of
+                        operations.</p>
+                </div>
+            </div>
+
+            <div class="card red">
+                <img src="https://i.pinimg.com/736x/7d/b5/ef/7db5ef9e8eb1cfc272058220fe38fa82.jpg" alt="Quality">
+                <div class="card-content">
+                    <h3>Quality</h3>
+                    <p>Our unwavering commitment to delivering uncompromising quality acts as the base of our enduring
+                        reputation.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CEO -->
+    <main class="Information">
+        <div class="CEO-information-container">
+            <div class="CEO-image">
+                <img src="VishalShahPhoto.jpg" alt="CEO Image" />
+            </div>
+            <div class="CEO-information">
+                <h2>Our CEO</h2>
+                <p>Mr. Vishal Shah, with decades of experience, leads Sanghvi SteelFab towards innovation and
+                    excellence.
+                    His vision of blending tradition with cutting-edge technology propels our growth and sustainability
+                    initiatives.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text">
+
+            <h2>"Our work does make sense<br>only if it is a faithful witness<br>of his time."</h2>
+            <p class="author">Jean-Philippe Nuel, Director</p>
+
+        </div>
+        <div class="quote-image">
+            <img src="https://i.pinimg.com/736x/f1/37/b1/f137b1914b1b9358e9ff9c0a76b852f3.jpg" alt="team work">
+        </div>
+    </section>
+
+    <!-- Bottom CTA Section -->
+    <section class="cta-section">
+        <p>Designed by Sanghvi SteelFab
+        <p>
+    </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+
+</html>

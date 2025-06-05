@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanghvi SteelFab</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .slide {
+            display: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 2s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            background-color: transparent;
+            padding: 0 5%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+
+        .left {
+            font-size: 30px;
+            color: whitesmoke;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .logo-navbar {
+            height: 80px;
+            width: 80px;
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: whitesmoke;
+            margin-left: 5px;
+        }
+
+        .logo-square {
+            height: 100px;
+            width: 100px;
+            margin-right: 5px;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.85);
+                width: 100%;
+                padding: 20px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
+        /* Container for product cards */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Product card styling */
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Hover effect */
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Info section */
+        .product-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product-info h2 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        .product-info p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 200px;
+            }
+        }
+
+
+        /* CTA Section */
+        .cta-section {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 16px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg" style="width:100%">
+        </div>
+        <div class="slide fade">
+            <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg" style="width:100%">
+        </div>
+    </div>
+
+
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-brand">
+            <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar" />
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="LandingPage.html"><b>Home</b></a></li>
+                <li><a href="Product.html"><b>Our Products</b></a></li>
+                <li><a href="AboutUs.html"><b>About Us</b></a></li>
+                <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Slideshow Script -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+    </script>
+
+    <!-- Products -->
+    <main class="product-grid">
+        <div class="product-card"><img src="https://i.pinimg.com/736x/6f/68/e4/6f68e404288f8d1e382036df2f52ebfe.jpg"
+                alt="Product 1">
+            <div class="product-info">
+                <h2>Stainless steel pipes </h2>
+                <p>Stainless steel pipes are corrosion-resistant tubes used for fluid transport and structural
+                    applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/92/4c/34/924c34db050cd065b16c2ca29dd35378.jpg"
+                alt="Product 2">
+            <div class="product-info">
+                <h2>Stainless steel pipes & tubes </h2>
+                <p>Stainless steel pipes and tubes are durable, corrosion-resistant components for various industrial
+                    uses.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/41/7e/47/417e474a1bc7f41753a5a070219fe512.jpg"
+                alt="Product 3">
+            <div class="product-info">
+                <h2>Stainless steel tubes</h2>
+                <p>Stainless steel tubes are strong, corrosion-resistant cylinders used in structural and fluid
+                    transport applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/fe/c7/cf/fec7cf5d5e77e1a0271c45db69f5d34f.jpg"
+                alt="Product 4">
+            <div class="product-info">
+                <h2>Stainless steel decorative sheets </h2>
+                <p>Stainless steel decorative sheets are stylish, corrosion-resistant panels used for aesthetic and
+                    architectural applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/5b/9e/9f/5b9e9fe8a2f81e46231e16d023b212c9.jpg"
+                alt="Product 5">
+            <div class="product-info">
+                <h2>Stainless steel ERW pipe </h2>
+                <p>Stainless steel ERW pipes are welded pipes known for strength, smooth finish, and use in structural
+                    and industrial applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/7e/5a/94/7e5a94c3a5e978bc5c2e7ba3a09cb003.jpg"
+                alt="Product 6">
+            <div class="product-info">
+                <h2>Stainless steel plates</h2>
+                <p>Stainless steel plates are flat, durable, and corrosion-resistant sheets used in construction,
+                    manufacturing, and industrial applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/25/54/c6/2554c62c27cc9d9a5a07983bdcbe6b3a.jpg"
+                alt="Product 7">
+            <div class="product-info">
+                <h2>Stainless steel coils</h2>
+                <p>Stainless steel coils are rolled, flexible sheets of stainless steel used in manufacturing,
+                    construction, and automotive industries.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/34/e4/89/34e489d5f2361ba0585ac5fa0be2caf4.jpg"
+                alt="Product 8">
+            <div class="product-info">
+                <h2>Stainless steel ERW welded pipe</h2>
+                <p>Stainless steel ERW welded pipes are electrically welded pipes known for their strength, smooth
+                    finish, and use in various industrial applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/474x/7d/dc/74/7ddc744b23c6294bf02f43c3623b85a0.jpg"
+                alt="Product 9">
+            <div class="product-info">
+                <h2>Stainless steel T patti</h2>
+                <p>Stainless steel T patti is a T-shaped stainless steel strip used in structural and decorative
+                    applications for reinforcement or framing.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/f9/1e/32/f91e321d86faf54e120a55742e8af3d4.jpg"
+                alt="Product 10">
+            <div class="product-info">
+                <h2>Stainless steel sheets & plates </h2>
+                <p>Stainless steel sheets and plates are flat, durable, and corrosion-resistant materials used in
+                    construction, manufacturing, and various industrial applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/6c/56/66/6c5666902aef2910d05033e5fa372bdd.jpg"
+                alt="Product 11">
+            <div class="product-info">
+                <h2>Stainless steel sheets</h2>
+                <p>Stainless steel sheets are flat, corrosion-resistant metal panels used in a wide range of industrial,
+                    architectural, and decorative applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/2c/3f/15/2c3f15c43b7db8dee511982b7f50726c.jpg"
+                alt="Product 12">
+            <div class="product-info">
+                <h2>Stainless steel triply circles</h2>
+                <p>Stainless steel triply circles are circular discs made from stainless steel, commonly used in
+                    cookware, industrial, and decorative applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/05/eb/7f/05eb7f763fcd70924ffd6dfc78a7ad31.jpg"
+                alt="Product 13">
+            <div class="product-info">
+                <h2>Stainless steel flat</h2>
+                <p>Stainless steel flats are flat, rectangular bars of stainless steel used in construction,
+                    manufacturing, and fabrication for various structural applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/0e/02/6e/0e026e78d3862d8d82a15ccc75669607.jpg"
+                alt="Product 14">
+            <div class="product-info">
+                <h2>Stainless steel bar</h2>
+                <p>Stainless steel bars are solid, durable rods used in construction, manufacturing, and industrial
+                    applications for reinforcement and structural support.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/f9/6d/a4/f96da454a77b765d194420cde406e7e9.jpg"
+                alt="Product 15">
+            <div class="product-info">
+                <h2>Stainless steel circle</h2>
+                <p>Stainless steel circles are round, flat discs made from stainless steel, commonly used in cookware,
+                    automotive, and decorative applications.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/ca/99/b5/ca99b59efec930bd573eadbd94e4a3ba.jpg"
+                alt="Product 16">
+            <div class="product-info">
+                <h2>Stainless steel wires</h2>
+                <p>Stainless steel wires are thin, flexible strands of stainless steel used in applications such as
+                    construction, wiring, and manufacturing due to their strength and corrosion resistance.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/aa/11/e6/aa11e6220082496d40f21a59b8f02c4d.jpg"
+                alt="Product 17">
+            <div class="product-info">
+                <h2>Stainless steel pipes & fitttings </h2>
+                <p>Stainless steel pipes and fittings are durable, corrosion-resistant components used in fluid
+                    transport, plumbing, and industrial systems.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/22/1b/fc/221bfc12458b0ba672375932ec29ba21.jpg"
+                alt="Product 18">
+            <div class="product-info">
+                <h2>Stainless steel angle bar</h2>
+                <p>Stainless steel angle bars are L-shaped metal bars used in construction, structural support, and
+                    framing applications due to their strength and durability.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/77/33/a2/7733a2d8d4a0cebbe36b49f73c9748b9.jpg"
+                alt="Product 19">
+            <div class="product-info">
+                <h2>Duplex steel</h2>
+                <p>Duplex steel is a corrosion-resistant alloy combining austenitic and ferritic stainless steel,
+                    offering high strength and excellent resistance to stress corrosion and cracking.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://i.pinimg.com/736x/84/d6/2e/84d62e6efb074c751fe81906d932af3d.jpg"
+                alt="Product 20">
+            <div class="product-info">
+                <h2>HRAP flat bars</h2>
+                <p>HRAP flat bars (Hot Rolled, Annealed, and Pickled) are stainless steel bars with a smooth, scale-free
+                    surface, used in structural, architectural, and industrial applications.</p>
+            </div>
+        </div>
+        <!--<div class="product-card"><img src="https://picsum.photos/200?random=21" alt="Product 21">
+            <div class="product-info">
+                <h2>Product 21</h2>
+                <p>Short description of product 21.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=22" alt="Product 22">
+            <div class="product-info">
+                <h2>Product 22</h2>
+                <p>Short description of product 22.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=23" alt="Product 23">
+            <div class="product-info">
+                <h2>Product 23</h2>
+                <p>Short description of product 23.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=24" alt="Product 24">
+            <div class="product-info">
+                <h2>Product 24</h2>
+                <p>Short description of product 24.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=25" alt="Product 25">
+            <div class="product-info">
+                <h2>Product 25</h2>
+                <p>Short description of product 25.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=26" alt="Product 26">
+            <div class="product-info">
+                <h2>Product 26</h2>
+                <p>Short description of product 26.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=27" alt="Product 27">
+            <div class="product-info">
+                <h2>Product 27</h2>
+                <p>Short description of product 27.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=28" alt="Product 28">
+            <div class="product-info">
+                <h2>Product 28</h2>
+                <p>Short description of product 28.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=29" alt="Product 29">
+            <div class="product-info">
+                <h2>Product 29</h2>
+                <p>Short description of product 29.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=30" alt="Product 30">
+            <div class="product-info">
+                <h2>Product 30</h2>
+                <p>Short description of product 30.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=31" alt="Product 31">
+            <div class="product-info">
+                <h2>Product 31</h2>
+                <p>Short description of product 31.</p>
+            </div>
+        </div>
+        <div class="product-card"><img src="https://picsum.photos/200?random=32" alt="Product 32">
+            <div class="product-info">
+                <h2>Product 32</h2>
+                <p>Short description of product 32.</p>
+            </div>
+        </div>-->
+    </main>
+    <!-- Bottom CTA Section -->
+    <div class="cta-section">
+        <div class="cta-text">Designed by Sanghvi SteelFab</div>
+    </div>
+</body>
+
+</html>
