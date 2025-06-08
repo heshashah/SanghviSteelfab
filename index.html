@@ -2,79 +2,184 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanghvi SteelFab</title>
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <div class="slideshow-container">
         <div class="slide fade">
             <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg">
-        </div>
+            </div>
         <div class="slide fade">
             <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg">
-        </div>
+            </div>
     </div>
 
-    <nav>
-        <div class="navbar-brand">
-            <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar" />
+    <header>
+        <nav>
+            <div class="navbar-brand">
+                <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar">
+            </div>
+
+            <div class="hamburger" id="hamburger">&#9776;</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><b>Home</b></a></li>
+                <li><a href="Product.html"><b>Our Products</b></a></li>
+                <li><a href="AboutUs.html"><b>About Us</b></a></li>
+                <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-left">
+                <h1 class="bold">Sanghvi SteelFab</h1>
+                <h1 class="stockist">Stockist and Importer of</h1>
+                <h1><span id="element"></span></h1>
+            </div>
+            <div class="hero-right">
+                <img src="Sanghvi SteelFab Logo.png" alt="Company Hero Image" class="hero-image">
+            </div>
+        </section>
+    </main>
+
+    <section class="import">
+        <div class="import-container">
+            <h1 class="section-heading">STAINLESS STEEL</h1>
+            <p class="section-description">
+                We are your trusted source for premium stainless steel solutions. Explore our wide range of stainless
+                steel products, expertly manufactured to meet industrial and commercial needs. Durability, reliability,
+                and quality – that's Sanghvi SteelFab.
+            </p>
+
+            <div class="photo-container">
+                <div class="photo-item">
+                    <img src="https://i.pinimg.com/736x/81/dc/bb/81dcbbfb23f1399962274daed5fee378.jpg"
+                        alt="Stainless Steel Product 1" />
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.pinimg.com/736x/d6/1e/20/d61e2086fe03265183b4eb9e044872d0.jpg"
+                        alt="Stainless Steel Product 2" />
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.pinimg.com/736x/ff/3d/f2/ff3df2a46d836eff274ca50267d27cb6.jpg"
+                        alt="Stainless Steel Product 3" />
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.pinimg.com/736x/a1/79/a1/a179a14f1177bd9b37f80175ef7afd8e.jpg"
+                        alt="Stainless Steel Product 4" />
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="hamburger" id="hamburger">
-            ☰ </div>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html"><b>Home</b></a></li>
-            <li><a href="Product.html"><b>Our Products</b></a></li>
-            <li><a href="AboutUs.html"><b>About Us</b></a></li>
-            <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
-        </ul>
-    </nav>
-
-    <div class="contact-container">
-        <div class="left-section">
-            <h1><span class="white">Get in</span> <span class="blue">Touch</span></h1>
-            <h3 class="office-works">Office / Works</h3>
-            <p class="address">Office no. 4<br>
-                Neo Clarissa, Sikkanagar<br>
-                Charni Road East<br>
-                Mumbai: 4000004<br>
-                Maharashtra - India</p>
+    <section class="how-we-operate">
+        <h2>How We Operate</h2>
+        <div class="operation-container">
+            <div class="operation-box">
+                <div class="icon">&#128172;</div>
+                <h3>Communication</h3>
+                <p>Ongoing consultations with customers to understand changing needs and internal collaboration to
+                    determine how we can best help.</p>
+            </div>
+            <div class="operation-box">
+                <div class="icon">&#128295;</div>
+                <h3>Innovative Solutions</h3>
+                <p>We leverage shared market knowledge and creative problem solving to meet customer needs.</p>
+            </div>
+            <div class="operation-box">
+                <div class="icon">&#128202;</div>
+                <h3>Superior Results</h3>
+                <p>Success derived from emphasis on efficiency, experience, transparency, and technology during
+                    transaction execution.</p>
+            </div>
+            <div class="operation-box">
+                <div class="icon">&#128077;</div>
+                <h3>Customer Satisfaction</h3>
+                <p>Complete honesty with our clients and ourselves about our value in the supply chain, resulting in
+                    better outcomes and mutual trust.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="right-section">
-            <form action="https://formsubmit.co/Sales@sanghvisteelfab.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-                <label for="name">Name:</label>
-                <input type="text" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" name="email" required>
-                <label for="message">Your Question:</label>
-                <textarea name="message" rows="5" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+    <section class="info-cards">
+        <div class="cards-container">
+            <div class="card-box">
+                <a href="index.html">
+                    <img src="Sanghvi SteelFab Logo.png" alt="Company">
+                    <p>Company</p>
+                </a>
+            </div>
+            <div class="card-box">
+                <a href="Product.html">
+                    <img src="https://i.pinimg.com/736x/c6/e2/09/c6e209d9ec0ce24b834a897034b59c49.jpg" alt="Products">
+                    <p>Products</p>
+                </a>
+            </div>
+            <div class="card-box">
+                <img src="https://i.pinimg.com/736x/a8/08/dc/a808dc4abe948bf36d57d4caa90c0c4c.jpg" alt="Services">
+                <p>Services</p>
+            </div>
+            <div class="card-box">
+                <img src="https://i.pinimg.com/736x/0e/02/7c/0e027c580970eddb68759f80e3eadcc5.jpg"
+                    alt="ISO Certificate">
+                <p>ISO Certificate</p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="map-section">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.085347206192!2d72.8222064!3d18.9882255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce20c4365d63%3A0xb35a09d435213b2c!2sNeo%20Clarissa%2C%20Sikkannagar%2C%20Charni%20Road%20East%2C%20Mumbai%2C%20Maharashtra%20400004!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-            width="100%" height="350" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    <div class="stats-section">
+        <div class="stat-box">
+            <i class="ri-user-settings-line"></i>
+            <h2>10</h2>
+            <p>WORKERS EMPLOYED</p>
+        </div>
+        <div class="stat-box">
+            <i class="ri-stack-line"></i>
+            <h2>50</h2>
+            <p>ANNUAL TURNOVER IN CRORE</p>
+        </div>
+        <div class="stat-box">
+            <i class="ri-bank-line"></i>
+            <h2>1,999</h2>
+            <p>YEAR OF ESTABLISHMENT</p>
+        </div>
+        <div class="stat-box">
+            <i class="ri-trophy-line"></i>
+            <h2>868</h2>
+            <p>PRODUCTS</p>
+        </div>
     </div>
 
     <div class="cta-section">
         <div class="cta-text">Designed by Sanghvi SteelFab</div>
     </div>
 
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
-        // Slideshow Script
+        var typed = new Typed('#element', {
+            strings: [
+                'Stainless Steel Pipes',
+                'Stainless Steel Tubes',
+                'Stainless Steel Decorative Sheets',
+                'Stainless Steel ERW Pipe',
+                'Stainless Steel Plates',
+                'Stainless Steel Coils',
+                'Stainless Steel T Patti',
+                'Stainless Steel Sheets',
+                'Stainless Steel Triply Circles'
+            ],
+            typeSpeed: 50,
+            loop: true
+        });
+
         let slideIndex = 0;
         showSlides();
 
@@ -89,10 +194,9 @@
                 slideIndex = 1
             }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 4000); // Change image every 4 seconds
+            setTimeout(showSlides, 3000);
         }
 
-        // Hamburger Menu Script
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
@@ -100,6 +204,7 @@
             navLinks.classList.toggle('show');
         });
     </script>
+
 </body>
 
 </html>
