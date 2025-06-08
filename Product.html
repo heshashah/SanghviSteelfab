@@ -66,8 +66,13 @@
             height: 100px;
             background-color: transparent;
             padding: 0 5%;
+            position: relative;
+            /* Added for absolute positioning of dropdown */
+            z-index: 10;
+            /* Ensures nav is above the slideshow */
         }
 
+        /* Default desktop styles for UL */
         nav ul {
             display: flex;
             list-style: none;
@@ -88,15 +93,12 @@
             color: white;
         }
 
-        .left {
-            font-size: 30px;
-            color: whitesmoke;
-        }
-
         .navbar-brand {
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            z-index: 11;
+            /* Ensure logo is on top */
         }
 
         .logo-navbar {
@@ -104,42 +106,54 @@
             width: 80px;
         }
 
-        .brand-name {
-            font-size: 1.8rem;
-            font-weight: bold;
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            /* Hidden on desktop */
+            font-size: 2rem;
             color: whitesmoke;
-            margin-left: 5px;
-        }
-
-        .logo-square {
-            height: 100px;
-            width: 100px;
-            margin-right: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 12;
+            /* Ensure hamburger is on top */
         }
 
         /* Responsive Navbar */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
+                /* Show hamburger on mobile */
             }
 
             .nav-links {
+                /* This is the UL itself now */
                 display: none;
+                /* Hidden by default */
                 flex-direction: column;
+                /* Stack vertically */
                 position: absolute;
-                top: 100%;
+                top: 100px;
+                /* Position below the navbar */
                 right: 0;
-                background-color: rgba(0, 0, 0, 0.85);
-                width: 100%;
-                padding: 20px;
+                /* Align to the right */
+                background-color: rgba(0, 0, 0, 0.6);
+                /* Translucent */
+                width: 250px;
+                /* Smaller width */
+                padding: 15px;
+                z-index: 9;
+                /* Below hamburger, but above content */
             }
 
             .nav-links.show {
                 display: flex;
+                /* Show when toggled */
             }
 
             .nav-links li {
                 margin: 10px 0;
+                /* Adjust spacing for mobile links */
                 text-align: center;
             }
         }
@@ -150,6 +164,10 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             padding: 20px;
+            position: relative;
+            /* Added for z-index */
+            z-index: 1;
+            /* Added to appear above slideshow */
         }
 
         /* Product card styling */
@@ -223,39 +241,38 @@
             bottom: 0;
             width: 100%;
             height: 50px;
+            z-index: 1;
+            /* Added to appear above slideshow */
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Slideshow -->
     <div class="slideshow-container">
         <div class="slide fade">
-            <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg" style="width:100%">
+            <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg">
         </div>
         <div class="slide fade">
-            <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg" style="width:100%">
+            <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg">
         </div>
     </div>
 
 
-    <!-- Navbar -->
     <nav>
         <div class="navbar-brand">
             <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar" />
         </div>
-        <div class="right">
-            <ul>
-                <li><a href="index.html"><b>Home</b></a></li>
-                <li><a href="Product.html"><b>Our Products</b></a></li>
-                <li><a href="AboutUs.html"><b>About Us</b></a></li>
-                <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
-            </ul>
-        </div>
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"><b>Home</b></a></li>
+            <li><a href="Product.html"><b>Our Products</b></a></li>
+            <li><a href="AboutUs.html"><b>About Us</b></a></li>
+            <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
+        </ul>
     </nav>
 
-    <!-- Slideshow Script -->
     <script>
         let slideIndex = 0;
         showSlides();
@@ -267,13 +284,14 @@
                 slides[i].style.display = "none";
             }
             slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showSlides, 4000); // Change image every 4 seconds
         }
     </script>
 
-    <!-- Products -->
     <main class="product-grid">
         <div class="product-card"><img src="https://i.pinimg.com/736x/6f/68/e4/6f68e404288f8d1e382036df2f52ebfe.jpg"
                 alt="Product 1">
@@ -435,83 +453,19 @@
                     surface, used in structural, architectural, and industrial applications.</p>
             </div>
         </div>
-        <!--<div class="product-card"><img src="https://picsum.photos/200?random=21" alt="Product 21">
-            <div class="product-info">
-                <h2>Product 21</h2>
-                <p>Short description of product 21.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=22" alt="Product 22">
-            <div class="product-info">
-                <h2>Product 22</h2>
-                <p>Short description of product 22.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=23" alt="Product 23">
-            <div class="product-info">
-                <h2>Product 23</h2>
-                <p>Short description of product 23.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=24" alt="Product 24">
-            <div class="product-info">
-                <h2>Product 24</h2>
-                <p>Short description of product 24.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=25" alt="Product 25">
-            <div class="product-info">
-                <h2>Product 25</h2>
-                <p>Short description of product 25.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=26" alt="Product 26">
-            <div class="product-info">
-                <h2>Product 26</h2>
-                <p>Short description of product 26.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=27" alt="Product 27">
-            <div class="product-info">
-                <h2>Product 27</h2>
-                <p>Short description of product 27.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=28" alt="Product 28">
-            <div class="product-info">
-                <h2>Product 28</h2>
-                <p>Short description of product 28.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=29" alt="Product 29">
-            <div class="product-info">
-                <h2>Product 29</h2>
-                <p>Short description of product 29.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=30" alt="Product 30">
-            <div class="product-info">
-                <h2>Product 30</h2>
-                <p>Short description of product 30.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=31" alt="Product 31">
-            <div class="product-info">
-                <h2>Product 31</h2>
-                <p>Short description of product 31.</p>
-            </div>
-        </div>
-        <div class="product-card"><img src="https://picsum.photos/200?random=32" alt="Product 32">
-            <div class="product-info">
-                <h2>Product 32</h2>
-                <p>Short description of product 32.</p>
-            </div>
-        </div>-->
     </main>
-    <!-- Bottom CTA Section -->
     <div class="cta-section">
         <div class="cta-text">Designed by Sanghvi SteelFab</div>
     </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 
 </html>

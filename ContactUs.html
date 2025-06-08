@@ -35,6 +35,8 @@
             display: none;
             height: 100%;
             width: 100%;
+            object-fit: cover;
+            /* Added for image filling the slide */
         }
 
         .slide img {
@@ -66,6 +68,8 @@
             height: 100px;
             background-color: transparent;
             padding: 0 5%;
+            position: relative;
+            z-index: 10;
         }
 
         nav ul {
@@ -88,15 +92,11 @@
             color: white;
         }
 
-        .left {
-            font-size: 30px;
-            color: whitesmoke;
-        }
-
         .navbar-brand {
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            z-index: 11;
         }
 
         .logo-navbar {
@@ -104,17 +104,15 @@
             width: 80px;
         }
 
-        .brand-name {
-            font-size: 1.8rem;
-            font-weight: bold;
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
             color: whitesmoke;
-            margin-left: 5px;
-        }
-
-        .logo-square {
-            height: 100px;
-            width: 100px;
-            margin-right: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 12;
         }
 
         /* Responsive Navbar */
@@ -127,11 +125,17 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 100%;
+                top: 100px;
+                /* Position below the navbar */
                 right: 0;
-                background-color: rgba(0, 0, 0, 0.85);
-                width: 100%;
-                padding: 20px;
+                /* Align to the right corner */
+                background-color: rgba(0, 0, 0, 0.6);
+                /* Translucent background */
+                width: 250px;
+                /* Smaller width */
+                padding: 15px;
+                /* Adjusted padding */
+                z-index: 10;
             }
 
             .nav-links.show {
@@ -139,7 +143,7 @@
             }
 
             .nav-links li {
-                margin: 10px 0;
+                margin: 15px 0;
                 text-align: center;
             }
         }
@@ -147,29 +151,35 @@
         /* Container */
         .content-box {
             background-color: rgba(0, 0, 0, 0.5);
-            /* Black translucent background */
             padding: 40px;
             border-radius: 10px;
             width: 100%;
             max-width: 1200px;
             margin: auto;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            min-height: 100vh;
+            align-items: flex-start;
+            min-height: 80vh;
             padding: 50px;
             color: white;
             border-radius: 10px;
             gap: 50px;
+            position: relative;
+            z-index: 1;
+            /* Added to ensure content is above slideshow */
         }
 
         @media (max-width: 768px) {
             .contact-container {
                 flex-direction: column;
                 gap: 30px;
+                padding: 20px;
+                align-items: center;
             }
         }
 
@@ -177,39 +187,23 @@
         .right-section {
             flex: 1 1 45%;
             font-size: 1.3rem;
-            /* increased font size */
             color: white;
-        }
-
-        .right-section {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 30px;
             border-radius: 10px;
-            height: 400px;
-        }
-
-        .left-section {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            border-radius: 10px;
-            height: 400px;
-        }
-
-        .left-section p {
-            font-size: 1.3rem;
-            /* increased */
-            line-height: 1.8;
+            min-height: 420px;
+            position: relative;
+            z-index: 1;
         }
 
         .left-section h1 {
             font-size: 3.5rem;
-            /* slightly bigger */
+            margin-bottom: 20px;
         }
 
-        form {
-            font-size: 1.2rem;
-            /* for form text */
-            width: 100%;
+        .left-section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
         }
 
         .white {
@@ -221,14 +215,60 @@
         }
 
         @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
-            }
-
             .left-section,
             .right-section {
                 flex: 1 1 100%;
+                width: 100%;
+                max-width: 500px;
+                min-height: auto;
             }
+
+            .left-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        form label {
+            text-align: left;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0 5%;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         /* CTA Section */
@@ -238,68 +278,39 @@
             text-align: center;
             padding: 15px 0;
             font-size: 16px;
-            position: relative;
-            bottom: 0;
             width: 100%;
-            height: 50px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
-            margin: auto;
-            gap: 10px;
-        }
-
-        input,
-        textarea,
-        button {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 
 <body>
-    <!-- Slideshow -->
     <div class="slideshow-container">
         <div class="slide fade">
-            <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg" style="width:100%">
+            <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg">
         </div>
         <div class="slide fade">
-            <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg" style="width:100%">
+            <img src="https://i.pinimg.com/736x/ec/47/dc/ec47dc491fcd0e65b09955569ded0b9c.jpg">
         </div>
     </div>
 
-    <!-- Navbar -->
     <nav>
         <div class="navbar-brand">
             <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar" />
         </div>
-        <div class="right">
-            <ul>
-                <li><a href="index.html"><b>Home</b></a></li>
-                <li><a href="Product.html"><b>Our Products</b></a></li>
-                <li><a href="AboutUs.html"><b>About Us</b></a></li>
-                <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
-            </ul>
-        </div>
+
+        <div class="hamburger" id="hamburger">
+            ☰ </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"><b>Home</b></a></li>
+            <li><a href="Product.html"><b>Our Products</b></a></li>
+            <li><a href="AboutUs.html"><b>About Us</b></a></li>
+            <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
+        </ul>
     </nav>
 
-
-    <!-- Address and Form -->
     <div class="contact-container">
         <div class="left-section">
             <h1><span class="white">Get in</span> <span class="blue">Touch</span></h1>
@@ -325,26 +336,20 @@
             </form>
         </div>
     </div>
-    </div>
 
-    <!-- Google maps -->
     <div class="map-section">
-        <!--<h2>Find Us on Google Maps</h2>-->
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.8223928724134!2d72.8208094!3d18.9577778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cfd3713d584f%3A0x3079c7d1e71f5209!2sNeo%20Clarissa%20by%20faith%20group!5e0!3m2!1sen!2sin!4v1713959000000!5m2!1sen!2sin"
-            width="100%" height="350" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.4035340644327!2d72.82338429999999!3d18.957777800000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cfd3713d584f%3A0x3079c7d1e71f5209!2sNeo%20Clarissa%20by%20faith%20group!5e0!3m2!1sen!2sin!4v1749376542106!5m2!1sen!2sin" 
+       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+       referrerpolicy="no-referrer-when-downgrade">
+       </iframe>
     </div>
 
-    <!-- Bottom CTA Section -->
     <div class="cta-section">
         <div class="cta-text">Designed by Sanghvi SteelFab</div>
     </div>
 
-    <!-- Slideshow Script -->
     <script>
+        // Slideshow Script
         let slideIndex = 0;
         showSlides();
 
@@ -355,10 +360,20 @@
                 slides[i].style.display = "none";
             }
             slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showSlides, 4000); // Change image every 4 seconds
         }
+
+        // Hamburger Menu Script
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
     </script>
 </body>
 

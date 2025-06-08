@@ -10,7 +10,6 @@
 
 <body>
 
-    <!-- Slideshow -->
     <div class="slideshow-container">
         <div class="slide fade">
             <img src="https://i.pinimg.com/736x/55/55/49/555549031eb9de55fcf61a5b0134afcc.jpg" style="width:100%">
@@ -20,27 +19,24 @@
         </div>
     </div>
 
-    <!-- Header -->
     <header>
         <nav>
             <div class="navbar-brand">
                 <img src="Sanghvi SteelFab Transparent.png" alt="Sanghvi Logo" class="logo-navbar">
             </div>
 
-            <div class="right">
-                <ul class="right1">
-                    <li><a href="index.html"><b>Home</b></a></li>
-                    <li><a href="Product.html"><b>Our Products</b></a></li>
-                    <li><a href="AboutUs.html"><b>About Us</b></a></li>
-                    <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
-                </ul>
-            </div>
+            <div class="hamburger" id="hamburger">&#9776;</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><b>Home</b></a></li>
+                <li><a href="Product.html"><b>Our Products</b></a></li>
+                <li><a href="AboutUs.html"><b>About Us</b></a></li>
+                <li><a href="ContactUs.html"><b>Contact Us</b></a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-left">
                 <h1 class="bold">Sanghvi SteelFab</h1>
@@ -53,7 +49,6 @@
         </section>
     </main>
 
-    <!-- Stainless Steel Section -->
     <section class="import">
         <div class="import-container">
             <h1 class="section-heading">STAINLESS STEEL</h1>
@@ -63,7 +58,6 @@
                 and quality – that's Sanghvi SteelFab.
             </p>
 
-            <!-- Photos Section -->
             <div class="photo-container">
                 <div class="photo-item">
                     <img src="https://i.pinimg.com/736x/81/dc/bb/81dcbbfb23f1399962274daed5fee378.jpg"
@@ -86,7 +80,6 @@
     </section>
 
 
-    <!-- How do we operate -->
     <section class="how-we-operate">
         <h2>How We Operate</h2>
         <div class="operation-container">
@@ -116,7 +109,6 @@
         </div>
     </section>
 
-    <!-- Info Cards -->
     <section class="info-cards">
         <div class="cards-container">
             <div class="card-box">
@@ -143,7 +135,6 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
     <div class="stats-section">
         <div class="stat-box">
             <i class="ri-user-settings-line"></i>
@@ -167,12 +158,10 @@
         </div>
     </div>
 
-    <!-- Bottom CTA Section -->
     <div class="cta-section">
         <div class="cta-text">Designed by Sanghvi SteelFab</div>
     </div>
 
-    <!-- Typed JS -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
@@ -204,7 +193,7 @@
             slides[slideIndex - 1].style.display = "block";
             setTimeout(showSlides, 3000);
         }
-        
+
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
